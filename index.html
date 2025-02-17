@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>データ入力フォーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>顧客情報管理システム</h1>
+<p>データの登録・更新時は、都度顧客名検索を行ってください。</p>
+<div id="searchCompany">
+    <p id="loading-comp-name">社名一覧を読み込み中...</p>
+    <div class="form-group">
+        <label for="customerName">検索会社名</label>
+        <input type="text" list="customerList" name="customerName" id="customerName">
+        <datalist id="customerList">
+        </datalist>
+    </div>
+    <button id="searchCompanyName" onclick="getCustomerDatas()">検索</button>
+</div>
+
+<form>
+    <!-- 基本情報 -->
+    <div class="section-title">基本情報</div>
+    <div class="form-group">
+        <label for="num">No.</label>
+        <input type="text" id="num" name="num">
+        <label for="status">状況</label>
+        <input type="text" id="status" name="status">
+    </div>
+    <div class="form-group">
+        <label for="list">元リスト</label>
+        <input type="text" id="list" name="list">
+    </div>
+    <div class="form-group">
+        <label for="industry">業界</label>
+        <input type="text" id="industry" name="industry">
+    </div>
+    <div class="form-group">
+        <label for="company-name">会社名</label>
+        <input type="text" id="company-name" name="company-name">
+
+    </div>
+
+    <!-- 担当情報 -->
+    <div class="section-title">担当情報</div>
+    <div class="form-group">
+        <label for="contact-point">自社担当</label>
+        <input type="text" id="contact-point" name="contact-point">
+        <label for="method">獲得方法</label>
+        <input type="text" id="method" name="method">
+    </div>
+    <div class="form-group">
+        <label for="website">会社HP</label>
+        <input type="text" id="website" name="website">
+    </div>
+
+    <div class="form-group">
+        <label for="product">提案商品</label>
+        <input type="text" id="product" name="product">
+    </div>
+    <div class="form-group">
+        <label for="role">役職</label>
+        <input type="text" id="role" name="role">
+        <label for="representative">代表者/担当</label>
+        <input type="text" id="representative" name="representative">
+    </div>
+
+    <!-- 詳細情報 -->
+    <div class="section-title">詳細情報</div>
+    <div class="form-group">
+        <label for="employees">従業員数</label>
+        <input type="text" id="employees" name="employees">
+        <label for="certainty">確度</label>
+        <input type="text" id="certainty" name="certainty">
+    </div>
+    <div class="form-group">
+
+    </div>
+    <div class="form-group">
+        <label for="contact1">1次接触</label>
+        <input type="text" id="contact1" name="contact1">
+        <label for="contact1-date">対応日</label>
+        <input type="date" id="contact1-date" name="contact1-date">
+    </div>
+    <div class="form-group">
+        <label for="contact2">2次接触</label>
+        <input type="text" id="contact2" name="contact2">
+        <label for="contact2-date">対応日</label>
+        <input type="date" id="contact2-date" name="contact2-date">
+    </div>
+    <div class="form-group">
+        <label for="contact3">3次接触</label>
+        <input type="text" id="contact3" name="contact3">
+        <label for="contact3-date">対応日</label>
+        <input type="date" id="contact3-date" name="contact3-date">
+    </div>
+    <div class="form-group">
+        <label for="area">エリア</label>
+        <input type="text" id="area" name="area">
+    </div>
+    <!-- 契約済み関係 -->
+    <div class="section-title">契約時 関係情報</div>
+    <div class="form-group">
+        <label for="contract-month">契約月</label>
+        <input type="month" id="contract-month" name="contract-month">
+        <label for="contract-span">契約期間(単位：月)</label>
+        <input type="number" id="contract-span" name="contract-span">
+    </div>
+    <div class="form-group">
+        <label for="sales">売上金額(単位:円)</label>
+        <input type="number" id="sales" name="sales">
+        <label for="cost">原価(単位:円)</label>
+        <input type="number" id="cost" name="cost">
+    </div>
+    <div class="form-group">
+        <label for="gross-profit">粗利益(単位:円)</label>
+        <input type="number" id="gross-profit" name="gross-profit">
+        <label for="contract-product">成約サービス内容</label>
+        <input type="text" id="contract-product" name="contract-product">
+    </div>
+    <!-- 備考 -->
+    <div class="section-title">備考</div>
+    <div class="form-group">
+        <label for="notes">備考</label>
+        <textarea id="notes" name="notes"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="contract-list">契約中リスト追加</label>
+        <input type="checkbox" id="contract-list" name="contract-list">
+    </div>
+</form>
+<!-- 送信ボタン -->
+<button onclick="updateData()">新規作成・更新</button>
+
+<script src="script.js"></script>
+</body>
+</html>
