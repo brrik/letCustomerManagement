@@ -143,7 +143,7 @@ async function updateData(){
     let jsonData = JSON.stringify(pushDatas)
     disableInput();
 
-    let returnData = await fetch("https://eijicustomermanagement.onrender.com/updatedata/",{
+    let returnData = await fetch("https://eijicustomermanagement.onrender.com/updatedata",{
         method : "POST",
         headers : {"Content-Type": "application/json"},
         body : jsonData
