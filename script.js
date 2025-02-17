@@ -143,6 +143,11 @@ async function updateData(){
     let jsonData = JSON.stringify(pushDatas)
     disableInput();
 
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // スムーズなスクロール
+    });
+    showLoad("データ反映中・・・")
     await fetch("https://eijicustomermanagement.onrender.com/updatedata",{
         method : "POST",
         headers : {"Content-Type": "application/json"},
@@ -154,10 +159,6 @@ async function updateData(){
                 console.log("レスポンスは true です。");
                 showLoad("データが正常に反映されました。")
                 enableSearch();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // スムーズなスクロール
-                });
                 getData();
             } else {
                 console.log("レスポンスは true ではありません。");
@@ -170,8 +171,6 @@ async function updateData(){
             showLoad("！！データ書き込みでエラーが発生しました！！<br>担当者に確認してください。")
             enableInput()
         });
-    console.log(returnData)
-
     /*
     google.script.run.withSuccessHandler(function(e){
         if(e===true){
