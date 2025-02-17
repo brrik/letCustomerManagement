@@ -143,11 +143,33 @@ async function updateData(){
     let jsonData = JSON.stringify(pushDatas)
     disableInput();
 
-    let returnData = await fetch("https://eijicustomermanagement.onrender.com/updatedata",{
+    await fetch("https://eijicustomermanagement.onrender.com/updatedata",{
         method : "POST",
         headers : {"Content-Type": "application/json"},
         body : jsonData
     })
+        .then(response => response.json())
+        .then(data => {
+            if (data === true) {
+                console.log("レスポンスは true です。");
+                showLoad("データが正常に反映されました。")
+                enableSearch();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // スムーズなスクロール
+                });
+                getData();
+            } else {
+                console.log("レスポンスは true ではありません。");
+                showLoad("！！データ書き込みでエラーが発生しました！！<br>担当者に確認してください。")
+                enableInput()
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            showLoad("！！データ書き込みでエラーが発生しました！！<br>担当者に確認してください。")
+            enableInput()
+        });
     console.log(returnData)
 
     /*
