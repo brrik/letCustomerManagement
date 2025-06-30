@@ -62,7 +62,7 @@ function enableInput(){
         btn.disabled = false;
     }
     for(area of areas){
-        area.disabled = true;
+        area.disabled = false;
     }
 }
 
