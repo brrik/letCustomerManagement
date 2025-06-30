@@ -34,14 +34,16 @@ function delAll(){
 function disableInput(){
     const inputs = document.querySelectorAll("input");
     const buttons = document.querySelectorAll("button");
-    const area = document.querySelector("textarea");
+    const areas = document.querySelectorAll("textarea");
     for(input of inputs){
         input.disabled = true;
     }
     for(btn of buttons){
         btn.disabled = true;
     }
-    area.disabled = true;
+    for(area of areas){
+        area.disabled = true;
+    }
 }
 
 function enableSearch(){
@@ -52,14 +54,16 @@ function enableSearch(){
 function enableInput(){
     const inputs = document.querySelectorAll("input");
     const buttons = document.querySelectorAll("button");
-    const area = document.querySelector("textarea");
+    const areas = document.querySelector("textarea");
     for(input of inputs){
         input.disabled = false;
     }
     for(btn of buttons){
         btn.disabled = false;
     }
-    area.disabled = false;
+    for(area of areas){
+        area.disabled = true;
+    }
 }
 
 async function getData(){
