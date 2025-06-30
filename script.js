@@ -54,7 +54,7 @@ function enableSearch(){
 function enableInput(){
     const inputs = document.querySelectorAll("input");
     const buttons = document.querySelectorAll("button");
-    const areas = document.querySelector("textarea");
+    const areas = document.querySelectorAll("textarea");
     for(input of inputs){
         input.disabled = false;
     }
