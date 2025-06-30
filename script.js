@@ -137,6 +137,7 @@ async function updateData(){
 
     const allInputs = document.querySelectorAll("input");
     const notes = document.querySelector("#notes")
+    const memo = document.querySelector("#memo")
     let pushDatas = {};
     for(input of allInputs){
         let key = input.getAttribute("id");
@@ -144,6 +145,7 @@ async function updateData(){
         pushDatas[key] = val;
     }
     pushDatas[notes.getAttribute("id")] = notes.value
+    pushDatas[memo.getAttribute("id")] = memo.value
     
     let jsonData = JSON.stringify(pushDatas)
     disableInput();
