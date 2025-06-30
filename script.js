@@ -127,6 +127,11 @@ async function getCustomerDatas() {
 
 
 async function updateData(){
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // スムーズなスクロール
+    });
+    showLoad("データ反映中・・・")
     const customerName = document.querySelector("#customerName").value;
     console.log("Customer Name:", customerName);
 
@@ -142,12 +147,6 @@ async function updateData(){
     
     let jsonData = JSON.stringify(pushDatas)
     disableInput();
-
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // スムーズなスクロール
-    });
-    showLoad("データ反映中・・・")
     await fetch("https://eijicustomermanagement.onrender.com/updatedata",{
         method : "POST",
         headers : {"Content-Type": "application/json"},
